@@ -60,6 +60,7 @@ Huebee.defaults = {
   notation: 'shortHex',
   setText: true,
   setBGColor: true,
+  hideText: false,
 };
 
 var proto = Huebee.prototype = Object.create( EvEmitter.prototype );
@@ -494,7 +495,7 @@ proto.setBackgrounds = function() {
   for ( var i=0; i < this.setBGElems.length; i++ ) {
     var elem = this.setBGElems[i];
     elem.style.backgroundColor = this.color;
-    elem.style.color = textColor;
+    elem.style.color = this.options.hideText ? this.color : textColor;
   }
 };
 
